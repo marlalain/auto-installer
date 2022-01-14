@@ -37,8 +37,10 @@ install() {
 	doing "Checking for ${1}..."
 	if ! command -v "${1}" 1>/dev/null; then
 		notice "'${1}' was not found"
-		doing "Installing it now..."
+		doing "Installing it now..." "-"
 		install_command "${1}"
 		okay "Installed '${1}'!"
+	else
+		skipping "${1} is already installed, skipping..." "-"
 	fi;
 }
